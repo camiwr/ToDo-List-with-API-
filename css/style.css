@@ -22,11 +22,11 @@
 
 :root[data-theme="dark"] {
     --background-body: #101214;
-    --background-input: #93B1A6;
+    --background-input: #22272B;
     --background-data: #868686;
     --background-tag: #ad77a6;
     --fundo-modal: #29272E;
-    --background-input-hover: #31695381;
+    --background-input-hover: #2C333A;
     --background-app: #161A1D;
     
     --color-body: #efecca;
@@ -34,7 +34,7 @@
     --color-button: #838181ab;
     --color-text: #ddd;
     --color-contraria: #000;
-    --hover-buttons: #C5CEB6;
+    --hover-buttons: #9BB4CA80;
     
     --vermelho: #E78474;
     --vermelho-escuro: #DC452E;
@@ -336,7 +336,7 @@ h1 {
     margin-bottom: 10px; 
     margin-left: 35px;
     background: var(--background-input);
-    border: 2px solid #5a5a5a;
+    border: 1px solid #5a5a5a;
     border-radius: 5px;
 }
 
@@ -357,7 +357,7 @@ h1 {
     display: inline-block; 
     margin-top: 10px;
     margin-left: 35px;
-    border: 1px solid var(--color-text);
+    border: 1px solid #5a5a5a;
 }
 
 .modal-content button:hover {
