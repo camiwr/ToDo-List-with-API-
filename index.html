@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-br" data-theme="light">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,10 +9,23 @@
         <title>TO-DO List</title>
     </head>
     <body>
-        <div id="app">
-            <h1>TO-DO List</h1>
+        <div class="themes">
+            <input type="checkbox" class="checkbox" id="cbx">
+    
+            <label class="label" for="cbx">
+                <i class="fas fa-moon"></i>
+                <i class="fas fa-sun"></i>
+                <div class="ball"></div>
+            </label>
+        </div>
+        <section id="app">
+
+            <div class="title">
+                <h1>TO-DO List</h1>
+            </div>
+
             <div class="input-container">
-                <input type="text" id="task-input" placeholder="Adicionar uma nova tarefa...">
+                <input type="text" id="task-input" placeholder="Adicionar tarefa...">
                 <input type="date" id="task-date">
                 <input type="text" id="task-tag" placeholder="Etiqueta">
                 <button id="add-task">Criar</button>
@@ -26,16 +39,17 @@
             <div id="edit-modal" class="modal">
                 <div class="modal-content">
                     <span class="close" onclick="closeEditModal()">&times;</span>
-                    <input type="text" id="edit-task-text" placeholder="Editar tarefa">
+                    <input type="text" id="edit-task-text" >
                     <input type="date" id="edit-task-date">
                     <input type="text" id="edit-task-tag" placeholder="Editar etiqueta">
                     <button onclick="saveEditedTask()">Salvar</button>
                 </div>
             </div>
-
+    
             <div id="task-list"></div>
 
-        </div>
+        </section>
+
         <script src="js/script.js"></script>
     </body>
 </html>

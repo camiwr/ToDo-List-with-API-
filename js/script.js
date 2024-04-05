@@ -104,4 +104,35 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
+// ------ Script para Modo DARK ------
 
+    const changeThemeToDark = () => {
+        document.documentElement.setAttribute("data-theme", "dark");
+        localStorage.setItem("data-theme", "dark");
+    }
+
+    const changeThemeToLight = () => {
+        document.documentElement.setAttribute("data-theme", "light");
+        localStorage.setItem("data-theme", 'light');
+    }
+    let theme = localStorage.getItem('data-theme');
+    if (theme == 'dark') changeThemeToDark();
+
+
+    // Pega o checkbox
+    const botaoDark = document.getElementById('cbx');
+
+    // Verifica se tem no localStorage seleção do dark theme
+    if (localStorage.getItem('data-theme') == 'dark') {
+    botaoDark.checked = true;
+    }
+
+    // Liga a função ao checkbox
+    botaoDark.addEventListener('change', () => {
+        let theme = localStorage.getItem('data-theme'); 
+        if (!botaoDark.checked){
+            changeThemeToLight()
+        }else{
+            changeThemeToDark()
+        }
+    });

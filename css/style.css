@@ -1,10 +1,31 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
+:root /* light */ {
+    --background-body: #EFECCA;
+    --color-body: #29272E;
+    --color-title: #457358;
+    --background-input: #B2BE9D;
+    --background-input-hover: #C5BFBF;
+    --color-button: #ddd;
+    --color-text: #000;
+    --color-text-claro: #ddd;
+    --hover-buttons: #C5CEB6;
+    --background-data: #4d4c4c;
+    --background-tag: #a14d96;
+    --fundo-modal: #FAF9EF;
+    --vermelho: #E78474;
+    --vermelho-escuro: #DC452E;
+}
+
+:root[data-theme="dark"] {
+    --background-body: #29272E;
+    --color-body: #efecca;
+    --color-title: #a9cbb7;
+}
 
 /* --------------------
    Reset e Estilos Base
 ---------------------- */
-
 * {
     margin: 0;
     padding: 0;
@@ -12,30 +33,101 @@
     font-family: 'Poppins', sans-serif;
 }
 
-body, html {
+/* -----------------------
+    Estilo dos themas 
+----------------------- */
+body{
     height: 100%;
-    background-color: #121212;
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    width: 100%;
+    background-color: var(--background-body);
+    color:var(--color-body);
 }
 
+.checkbox {
+    opacity: 0;
+    position: absolute;
+}
+
+.label {
+    background-color: #111;
+    border-radius: 50px;
+    border: 1px solid #ffffff70;
+    cursor: pointer;
+    
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+    padding: 5px;
+    position: relative;
+    height: 26px;
+    width: 50px;
+    
+    transform: scale(1.5)
+}
+
+.label .ball {
+    background-color: #fff;
+    border-radius: 50%;
+    position: absolute;
+    top: 2px;
+    bottom: 2px;
+    left: 2px;
+    height: 20px;
+    width: 20px;
+    
+    transform: translateX(0px);
+    transition: transform 0.2s linear;
+}
+
+.checkbox:checked + .label .ball {
+    transform: translateX(24px);
+}
+
+.fa-moon {
+    color: #f7ff58;
+}
+
+.fa-sun {
+    color: #f39c12;
+}
+
+.themes {
+    display: flex;
+    align-items: start;
+    justify-content: start;
+
+    height: 70px;
+    margin: 0;
+    padding: 30px;
+    transition: background 0.2s linear;
+} 
+
 /* --------------------
-   Container Principal
+        Principal
 ---------------------- */
 
 #app {
-    width: 90%;
-    max-width: 550px;
+    background-color: var(--background-body);
+    max-width: 100vh; 
+    margin: auto;
+    margin-bottom: 10px;
+    padding: 20px; 
+    overflow-y: initial; 
+    height:  100%;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px 2px;
+    border-radius: 7px;
+
 }
+
 
 h1 {
     font-size: 2em;
     text-align: center;
-    color: #00B4D8; 
+    color: var(--color-title); 
     margin: 0.5em 0;
 }
+
 /* -----------------------------
  Container de Entrada de Tarefas
 -------------------------------- */
@@ -44,8 +136,8 @@ h1 {
     display: flex;
     gap: 10px;
     padding: 10px 20px;
-    background: #252525;
-    border-radius: 5px;
+    background: var(--background-input);
+    border-radius: 6px;
     margin-bottom: 20px;
 }
 
@@ -58,30 +150,32 @@ h1 {
 .input-container input[type="text"] {
     flex: 1;
     padding: 10px;
-    background: #1E1E1E;
-    border: 1px solid #333;
-    color: white;
-    border-radius: 3px;
+    background: var(--background-input);
+    border: 2px solid #333;
+    color: var(--color-text);
+    font-weight: 500;
+    border-radius: 6px;
     min-width: 120px;
 }
 
-.input-container input[type="date"] {
-    flex: 0 0 140px;
+::placeholder {
+    color: var(--color-text);
+    opacity: 1;
 }
 
 .input-container button {
     padding: 10px;
-    background-color: #0D6EFD;
-    color: white;
+    background-color: var(--color-button);
+    color: var(--color-text);
+    font-weight: 500;
     border: none;
-    border-radius: 3px;
+    border-radius: 6px;
     cursor: pointer;
     flex: 0 0 auto;
 }
 .input-container button:hover {
-    background-color: #0056b3;
+    background-color: var(--hover-buttons);
 }
-
 
 /* ----------------------
    Contadores de Tarefas
@@ -99,7 +193,7 @@ h1 {
 ---------------------- */
 
 #task-list .task-card {
-    background-color: #1E1E1E;
+    background-color: var(--background-input);
     border-radius: 5px;
     margin-bottom: 0.8em;
     padding: 10px;
@@ -114,7 +208,6 @@ h1 {
 #task-list .task-card input[type="checkbox"] {
     color: #0D6EFD;
     margin-right: 10px;
-
 }
 
 /* --------------------
@@ -135,23 +228,32 @@ h1 {
 }
 
 .task-card i {
-    color: #ffffff; 
+    color: var(--color-text); 
     margin: 0 10px; 
     cursor: pointer;
 }
 
+.task-card #Deletar:hover {
+    color: var(--vermelho-escuro);
+}
+
+.task-card #Editar:hover {
+    color: var(--background-data);
+}
+
 #task-list .task-card:hover {
-    background-color: #292929;
+    background-color: var(--hover-buttons);
 }
 
 /* --------------------
-    Data e Etiqueta
+    Data e Etiqueta 
+    Nas tarefas
 ---------------------- */
 
 .task-card .task-date,
 .task-card .task-tag {
-    background-color: #333;
-    color: #ddd;
+    background-color: var(--background-data);
+    color: var(--color-text-claro);
     padding: 3px 6px;
     border-radius: 3px;
     margin-right: 3px; 
@@ -159,7 +261,7 @@ h1 {
 }
 
 .task-card .task-tag {
-    background-color: #a14d96;
+    background-color: var(--background-tag);
 }
 
 /* tarefa concluída */
@@ -180,16 +282,16 @@ h1 {
     width: 100%;
     height: 100%;
     overflow: auto; 
-    background-color: rgba(0,0,0,0.4);
+    background-color: rgba(0, 0, 0, 0.603);
 }
 
 .modal-content {
-    background-color: #121212;
+    background-color: var(--fundo-modal);
     margin: 15% auto; 
     padding: 20px;
-    border: 4px solid #585858;
-    width: 70%; 
-    border-radius: 5px; 
+    border: 1px solid #585858;
+    width: 50%; 
+    border-radius: 7px; 
 }
 
 .close {
@@ -202,7 +304,7 @@ h1 {
 
 .close:hover,
 .close:focus {
-    color: #ddd;
+    color: var(--vermelho);
     text-decoration: none;
     cursor: pointer;
 }
@@ -215,7 +317,7 @@ h1 {
     padding: 10px;
     margin-bottom: 10px; 
     margin-left: 35px;
-    background: #ddd;
+    background: var(--background-input);
     border: 2px solid #5a5a5a;
     color: rgb(41, 41, 41);
     border-radius: 5px;
@@ -223,8 +325,8 @@ h1 {
 
 .modal-content button {
     padding: 10px 20px;
-    background-color: #0D6EFD; 
-    color: white;
+    background-color: var(--color-button); 
+    color: var(--color-text-claro);
     border: none;
     border-radius: 4px;
     cursor: pointer;
@@ -235,5 +337,5 @@ h1 {
 }
 
 .modal-content button:hover {
-    background-color: #0056b3; 
+    background-color: var(--hover-buttons); 
 }
