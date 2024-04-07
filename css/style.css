@@ -419,7 +419,8 @@ h1 {
 ------------------- */
 @media only screen and (max-width: 299px) {
     #app {
-        padding: 10px; 
+        width: 80%; 
+        margin: auto; 
     }
 
     .themes {
@@ -449,8 +450,9 @@ h1 {
     }
 
     #task-tag-color {
-        height: 35px; 
-        margin-top: 10px; 
+        order: -1; 
+        width: 35px; 
+        height: 20px; 
     }
 
     .task-card {
@@ -472,13 +474,14 @@ h1 {
 
 
 @media only screen and (min-width: 300px) {
+    #app {
+        width: 90%; 
+        margin: auto; 
+    } 
+    
     .themes {
         justify-content:start;
         padding-left: 30px; 
-    }
-
-    .label {
-        transform: scale(1.5); 
     }
 
     .input-container{
@@ -486,7 +489,7 @@ h1 {
     }
 
     .input-container {
-        gap: 10px; /* Espaço entre os campos */
+        gap: 10px; 
     }
 
     .task-card {
@@ -505,41 +508,20 @@ h1 {
 }
 
 @media only screen and (min-width: 597px) {
+    #app {
+        width: 90%; 
+        margin: auto; 
+    } 
+
     .themes {
         justify-content: start;
         padding-left: 30px; 
     }
 
-    .label {
-        transform: scale(1.5); /* Aumente a escala do botão de troca de tema */
-    }
-
-    .input-container{
-        flex-direction: row;
-    }
-
-    .input-container {
-        gap: 10px; /* Espaço entre os campos */
-    }
-
-    .task-card {
-        gap: 5px; 
-    }
-
-    #task-tag {
-        flex-grow: 1; 
-    }
-
-    #task-tag-color {
-        order: -1; 
-        width: 35px; 
-        height: 20px; 
-    }
 }
 
 
 @media only screen and (min-width: 768px) {
-    /* Para telas maiores, como tablets */
     #app {
         width: 80%; 
         margin: auto; 
@@ -558,9 +540,8 @@ h1 {
 }
 
 @media only screen and (min-width: 1024px) {
-    /* Para desktops */
+
     #app {
-        width: 60%; /* Ajuste a largura conforme necessário */
     }
 }
 
