@@ -132,7 +132,7 @@ document.addEventListener('DOMContentLoaded', function() {
             closeEditModal();
         }
     }
-    
+
     window.toggleTask = toggleTask;
     window.removeTask = removeTask;
     window.editTask = editTask;
