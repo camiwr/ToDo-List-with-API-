@@ -9,7 +9,8 @@
         <title>TO-DO List</title>
     </head>
     <body>
-        <div class="themes">
+        <!-- checkbox para mudar themas  -->
+        <div class="themes"> 
             <input type="checkbox" class="checkbox" id="cbx">
     
             <label class="label" for="cbx">
@@ -27,7 +28,10 @@
             <div class="input-container">
                 <input type="text" id="task-input" placeholder="Adicionar tarefa...">
                 <input type="date" id="task-date">
-                <input type="text" id="task-tag" placeholder="Etiqueta">
+                <div class="input-tag-color-container">
+                    <input type="text" id="task-tag" placeholder="Etiqueta">
+                    <input type="color" id="task-tag-color" value="#db4242"> 
+                </div>
                 <button id="add-task">Criar</button>
             </div>
             
@@ -35,7 +39,7 @@
                 <span id="created-count">Criadas: 0</span>
                 <span id="completed-count">Concluídas: 0</span>
             </div>
-
+            <!-- modal para editar a tarefa -->
             <div id="edit-modal" class="modal">
                 <div class="modal-content">
                     <span class="close" onclick="closeEditModal()">&times;</span>
